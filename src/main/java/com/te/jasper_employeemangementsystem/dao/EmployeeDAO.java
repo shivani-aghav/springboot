@@ -7,4 +7,5 @@ import com.te.jasper_employeemangementsystem.entity.Employee;
 public interface EmployeeDAO extends JpaRepository<Employee, Integer> {
 
 	Employee findByEmployeeId(String employeeId);
+	
 }

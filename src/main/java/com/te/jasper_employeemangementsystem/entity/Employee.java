@@ -6,6 +6,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 
 import org.hibernate.annotations.Cascade;
@@ -38,5 +40,8 @@ public class Employee {
 	private Address address;
 	private String gender;
 	private String fatherName;
-	
+
+	@ManyToOne
+	@Cascade(CascadeType.ALL)
+	private CompanyDetails company;
 }

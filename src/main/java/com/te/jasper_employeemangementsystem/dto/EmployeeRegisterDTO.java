@@ -3,6 +3,7 @@ package com.te.jasper_employeemangementsystem.dto;
 import java.time.LocalDateTime;
 
 import com.te.jasper_employeemangementsystem.entity.Address;
+import com.te.jasper_employeemangementsystem.entity.CompanyDetails;
 import com.te.jasper_employeemangementsystem.entity.EStatus;
 
 import lombok.AllArgsConstructor;
@@ -24,4 +25,5 @@ public class EmployeeRegisterDTO {
 	private Address address;
 	private String gender;
 	private String fatherName;
+	private CompanyDetails company;
 }

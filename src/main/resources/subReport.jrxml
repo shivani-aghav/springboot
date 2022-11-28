@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.20.0.final using JasperReports Library version 6.20.0-2bc7ab61c56f459e8176eb05c7705e145cd400ad  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="subReport" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="cf243105-5b0f-4607-8b75-26f69ef1d2ec">
+	<property name="com.jaspersoft.studio.data.sql.tables">
+		<![CDATA[amFzcGVyX2Vtcy5jb21wYW55X2RldGFpbHMgQVMgLDE5LDY4LDQxNTMwMjUyLWUzMGYtNDVlNi05
+MDM2LTQ0OTMyNDY4NzhjMztqYXNwZXJfZW1zLmVtcGxveWVlIEFTICwxMzEsNzQsNmQ2MTFkNTkt
+NGJjNS00MzVjLWIyMmEtNWQ3OGJkNmZjNjMxOw==]]>
+	</property>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="My Data Adapter"/>
+	<parameter name="employeeId" class="java.lang.String"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT jasper_ems.company_details.company_detailss,
+	jasper_ems.company_details.company_logo,
+	jasper_ems.employee.employee_id
+FROM jasper_ems.employee
+	INNER JOIN jasper_ems.company_details ON 
+	 jasper_ems.employee.company_c_id = jasper_ems.company_details.c_id
+	 and jasper_ems.employee.employee_id= $P{employeeId} ]]>
+	</queryString>
+	<field name="company_detailss" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="company_detailss"/>
+		<property name="com.jaspersoft.studio.field.label" value="company_detailss"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="company_details"/>
+	</field>
+	<field name="company_logo" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="company_logo"/>
+		<property name="com.jaspersoft.studio.field.label" value="company_logo"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="company_details"/>
+	</field>
+	<field name="employee_id" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="employee_id"/>
+		<property name="com.jaspersoft.studio.field.label" value="employee_id"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="employee"/>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<detail>
+		<band height="125" splitType="Stretch">
+			<property name="com.jaspersoft.studio.layout" value="com.jaspersoft.studio.editor.layout.HorizontalRowLayout"/>
+			<image hAlign="Center" vAlign="Middle">
+				<reportElement x="0" y="0" width="278" height="125" uuid="9b45c96e-7dad-4897-beac-c8eba58be629"/>
+				<imageExpression><![CDATA[$F{company_logo}]]></imageExpression>
+			</image>
+			<textField>
+				<reportElement x="278" y="0" width="277" height="125" uuid="3c5307e3-41c0-4b49-a28a-d336cfaa61f4"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="22"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{company_detailss}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

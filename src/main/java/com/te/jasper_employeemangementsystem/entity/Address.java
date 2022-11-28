@@ -12,9 +12,10 @@ import lombok.Data;
 public class Address {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int addId;
 	private String permanentAddress;
+	private String pincode;
 	
 	
 }

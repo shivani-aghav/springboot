@@ -9,8 +9,10 @@ import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.te.jasper_employeemangementsystem.dao.CompanyDAO;
 import com.te.jasper_employeemangementsystem.dao.EmployeeDAO;
 import com.te.jasper_employeemangementsystem.dto.EmployeeRegisterDTO;
+import com.te.jasper_employeemangementsystem.entity.CompanyDetails;
 import com.te.jasper_employeemangementsystem.entity.Employee;
 import com.te.jasper_employeemangementsystem.exception.EmployeeNotFoundException;
 
@@ -20,6 +22,9 @@ public class EmployeeServiceImplementation implements EmployeeService {
 	@Autowired
 	private EmployeeDAO dao;
 
+	@Autowired
+	private CompanyDAO companyDAO;
+	
 	private int i;
 	LocalDateTime myDateObj = LocalDateTime.now();
 	DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern("MMyy");
@@ -31,18 +36,27 @@ public class EmployeeServiceImplementation implements EmployeeService {
 		if (dto == null) {
 			throw new EmployeeNotFoundException("no data found to register");
 		}
+		CompanyDetails findByCompanyDetailss = companyDAO.findByCompanyDetailss(dto.getCompany().getCompanyDetailss());
+		if(findByCompanyDetailss!=null) {
+			employee.setCompany(findByCompanyDetailss);
+		}
 		dao.save(employee);
 		i = employee.getId();
 		employee.setEmployeeId("TYC" + myDateObj.format(myFormatObj) + String.format("%03d", i));
 		employee.setStatus(dto.getStatus().name());
-		if (dto.getGender().equals("F")) {
-			employee.setFatherName("D/O" + dto.getFatherName());
-		} else {
-			employee.setFatherName("S/O" + dto.getFatherName());
-		}
+//		if (dto.getGender().equals("F")) {
+//			employee.setFatherName("D/O " + dto.getFatherName());
+//		} else {
+//			employee.setFatherName("S/O " + dto.getFatherName());
+//		}
+		employee.getCompany().setEmployeeId(employee.getEmployeeId());
+//        CompanyDetails details = companyDAO.findByCompanyDetailss(dto.getCompany().getCompanyDetailss());
+//        if (details==null) {
+//        	employee.setCompany(details);
+//		}
+//		companyDAO.save(details);
 		Employee save = dao.save(employee);
-		BeanUtils.copyProperties(save, dto);
-
+//		BeanUtils.copyProperties(save, dto);
 		return dto;
 	}
 
@@ -65,11 +79,11 @@ public class EmployeeServiceImplementation implements EmployeeService {
 		if (findByEmpId != null) {
 			if (findByEmpId.isDeleted() == false) {
 				BeanUtils.copyProperties(dto, findByEmpId);
-				if (dto.getGender().equals("F")) {
-					findByEmpId.setFatherName("D/O "+dto.getFatherName());
-				}else {
-					findByEmpId.setFatherName("S/O "+dto.getFatherName());
-				}
+//				if (dto.getGender().equals("F")) {
+//					findByEmpId.setFatherName("D/O " + dto.getFatherName());
+//				} else {
+//					findByEmpId.setFatherName("S/O " + dto.getFatherName());
+//				}
 				dao.save(findByEmpId);
 				BeanUtils.copyProperties(findByEmpId, dto);
 				return dto;
