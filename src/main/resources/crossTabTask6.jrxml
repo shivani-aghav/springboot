@@ -128,7 +128,7 @@ FROM jasper_ems.employee
 	<summary>
 		<band height="269" splitType="Stretch">
 			<crosstab>
-				<reportElement isPrintRepeatedValues="false" x="148" y="182" width="300" height="70" uuid="a29b635f-650d-4efd-9039-52b9c60ba4fe">
+				<reportElement isPrintRepeatedValues="false" x="140" y="80" width="300" height="70" uuid="a29b635f-650d-4efd-9039-52b9c60ba4fe">
 					<property name="com.jaspersoft.studio.layout" value="com.jaspersoft.studio.editor.layout.VerticalRowLayout"/>
 					<property name="com.jaspersoft.studio.crosstab.style.header" value="Crosstab_CH"/>
 					<property name="com.jaspersoft.studio.crosstab.style.group" value="Crosstab_CG"/>
@@ -141,7 +141,7 @@ FROM jasper_ems.employee
 				<crosstabHeaderCell>
 					<cellContents>
 						<frame>
-							<reportElement x="0" y="0" width="240" height="20" uuid="dcda632d-012c-4924-b5af-008d51c96c56"/>
+							<reportElement x="0" y="0" width="241" height="20" uuid="dcda632d-012c-4924-b5af-008d51c96c56"/>
 							<frame>
 								<reportElement x="0" y="0" width="60" height="20" uuid="06d2eeb1-7de8-400a-9ddd-d106588cf197"/>
 								<staticText>
@@ -223,14 +223,14 @@ FROM jasper_ems.employee
 						</cellContents>
 					</crosstabTotalRowHeader>
 				</rowGroup>
-				<rowGroup name="emp_name" width="60" totalPosition="End">
+				<rowGroup name="emp_name" width="61" totalPosition="End">
 					<bucket class="java.lang.String">
 						<bucketExpression><![CDATA[$F{emp_name}]]></bucketExpression>
 					</bucket>
 					<crosstabRowHeader>
 						<cellContents mode="Opaque" style="Crosstab_CH">
 							<textField>
-								<reportElement x="0" y="0" width="60" height="20" uuid="e034d149-8b56-480b-a7f4-10b7b2bad26d"/>
+								<reportElement x="0" y="0" width="61" height="20" uuid="e034d149-8b56-480b-a7f4-10b7b2bad26d"/>
 								<textElement textAlignment="Center" verticalAlignment="Middle"/>
 								<textFieldExpression><![CDATA[$V{emp_name}]]></textFieldExpression>
 							</textField>
@@ -239,7 +239,7 @@ FROM jasper_ems.employee
 					<crosstabTotalRowHeader>
 						<cellContents mode="Opaque" style="Crosstab_CG">
 							<frame>
-								<reportElement x="0" y="0" width="180" height="20" uuid="76a410ee-9a21-42be-baee-cc935cd5be24"/>
+								<reportElement x="0" y="0" width="181" height="20" uuid="76a410ee-9a21-42be-baee-cc935cd5be24"/>
 								<staticText>
 									<reportElement x="18" y="0" width="80" height="20" uuid="6a6d1f45-ccbe-45fd-b029-735f8d898580"/>
 									<textElement textAlignment="Center" verticalAlignment="Middle"/>
@@ -323,7 +323,9 @@ FROM jasper_ems.employee
 					<cellContents mode="Opaque" style="Crosstab_CD"/>
 				</crosstabCell>
 				<crosstabCell width="0" height="20" columnTotalGroup="c_id">
-					<cellContents mode="Opaque" style="Crosstab_CT"/>
+					<cellContents mode="Opaque" style="Crosstab_CT">
+						<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					</cellContents>
 				</crosstabCell>
 				<crosstabCell width="1" height="0" rowTotalGroup="company_detailss">
 					<cellContents mode="Opaque" style="Crosstab_CT"/>
@@ -335,7 +337,9 @@ FROM jasper_ems.employee
 					<cellContents mode="Opaque" style="Crosstab_CG"/>
 				</crosstabCell>
 				<crosstabCell width="0" height="20" rowTotalGroup="emp_name" columnTotalGroup="c_id">
-					<cellContents mode="Opaque" style="Crosstab_CT"/>
+					<cellContents mode="Opaque" style="Crosstab_CT">
+						<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					</cellContents>
 				</crosstabCell>
 				<crosstabCell width="1" height="0" rowTotalGroup="email">
 					<cellContents mode="Opaque" style="Crosstab_CG"/>
