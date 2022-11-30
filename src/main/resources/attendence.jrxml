@@ -1,0 +1,390 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.20.0.final using JasperReports Library version 6.20.0-2bc7ab61c56f459e8176eb05c7705e145cd400ad  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="attendence" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="7ef48c59-e13e-455d-aa89-1dc73f8c6221">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="My Data Adapter"/>
+	<style name="Crosstab_CH" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="Crosstab_CG" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="Crosstab_CT" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="Crosstab_CD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<parameter name="DateFrom" class="java.sql.Date"/>
+	<parameter name="DateTo" class="java.sql.Date"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT hitachi.employee.employee_id,
+	hitachi.attendence.afternoon,
+	hitachi.attendence.morning,
+	hitachi.attendence.date,
+	hitachi.employee.emp_name
+FROM hitachi.attendence
+	INNER JOIN hitachi.employee ON 
+	 hitachi.attendence.employee_id = hitachi.employee.id
+	 and	hitachi.attendence.date between  $P{DateFrom} and  $P{DateTo}]]>
+	</queryString>
+	<field name="employee_id" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="employee_id"/>
+		<property name="com.jaspersoft.studio.field.label" value="employee_id"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="employee"/>
+	</field>
+	<field name="afternoon" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="afternoon"/>
+		<property name="com.jaspersoft.studio.field.label" value="afternoon"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="attendence"/>
+	</field>
+	<field name="morning" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="morning"/>
+		<property name="com.jaspersoft.studio.field.label" value="morning"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="attendence"/>
+	</field>
+	<field name="date" class="java.sql.Date">
+		<property name="com.jaspersoft.studio.field.name" value="date"/>
+		<property name="com.jaspersoft.studio.field.label" value="date"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="attendence"/>
+	</field>
+	<field name="emp_name" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="emp_name"/>
+		<property name="com.jaspersoft.studio.field.label" value="emp_name"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="employee"/>
+	</field>
+	<variable name="Variable_1" class="java.lang.Integer">
+		<variableExpression><![CDATA[$V{REPORT_COUNT}]]></variableExpression>
+	</variable>
+	<title>
+		<band height="156" splitType="Stretch">
+			<image>
+				<reportElement x="5" y="5" width="279" height="99" uuid="90859ea1-7765-4692-8db5-cf21265b6e06"/>
+				<imageExpression><![CDATA["C:/Users/shivani/OneDrive/Desktop/new Logo for website TY transp bg -15.png"]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="284" y="5" width="276" height="99" uuid="0b864fa0-e225-416b-8bd4-07666cb6d783"/>
+				<textElement verticalAlignment="Middle">
+					<font size="14"/>
+				</textElement>
+				<text><![CDATA[TechnoElevate,IndiQube South Mile, 4th Floor, Vijayarangam Layout, Jayanagar, Bengaluru, Karnataka 560070]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="111" width="555" height="42" backcolor="#807878" uuid="779ba878-1f2c-44d5-badc-d0214dfbae88"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="20" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Employee Attendence Details]]></text>
+			</staticText>
+			<textField evaluationTime="Report">
+				<reportElement x="65" y="125" width="100" height="20" uuid="fcfe60ef-b805-40a1-99dd-dc060c42faca">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Left"/>
+				<textFieldExpression><![CDATA[" of " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="-8" y="125" width="71" height="20" uuid="46ee7b3f-c15c-4eac-a196-94124ffbbbd0"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Page " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd-MM-yyyy h:mm:ss a">
+				<reportElement x="438" y="111" width="116" height="39" uuid="61a9587f-4a54-43d9-addd-6f5dc6633737"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<summary>
+		<band height="340" splitType="Stretch">
+			<crosstab>
+				<reportElement x="0" y="30" width="555" height="60" uuid="c2827aeb-7307-49bb-a562-f5b8a111958b">
+					<property name="com.jaspersoft.studio.layout" value="com.jaspersoft.studio.editor.layout.VerticalRowLayout"/>
+					<property name="com.jaspersoft.studio.crosstab.style.header" value="Crosstab_CH"/>
+					<property name="com.jaspersoft.studio.crosstab.style.group" value="Crosstab_CG"/>
+					<property name="com.jaspersoft.studio.crosstab.style.total" value="Crosstab_CT"/>
+					<property name="com.jaspersoft.studio.crosstab.style.detail" value="Crosstab_CD"/>
+				</reportElement>
+				<crosstabDataset>
+					<dataset resetType="Report"/>
+				</crosstabDataset>
+				<crosstabHeaderCell>
+					<cellContents>
+						<frame>
+							<reportElement x="0" y="0" width="120" height="40" uuid="71bd2d3b-2d4a-41ed-926f-11eade9ab7a7"/>
+							<frame>
+								<reportElement x="0" y="0" width="120" height="40" uuid="9be234df-350e-4fed-942d-284f6f81dcf9"/>
+								<staticText>
+									<reportElement x="0" y="20" width="60" height="20" uuid="da995330-a349-44fb-8912-b1ca14fc27da"/>
+									<box>
+										<topPen lineWidth="0.6" lineStyle="Solid" lineColor="#000000"/>
+										<leftPen lineWidth="0.6" lineStyle="Solid" lineColor="#000000"/>
+										<bottomPen lineWidth="0.6" lineStyle="Solid" lineColor="#000000"/>
+										<rightPen lineWidth="0.6" lineStyle="Solid" lineColor="#000000"/>
+									</box>
+									<textElement textAlignment="Center" verticalAlignment="Middle"/>
+									<text><![CDATA[EmployeeId]]></text>
+								</staticText>
+								<staticText>
+									<reportElement x="60" y="20" width="60" height="20" uuid="c31a6755-4e1e-4984-ad8f-e01de64c0d60"/>
+									<box>
+										<topPen lineWidth="0.6" lineStyle="Solid" lineColor="#000000"/>
+										<leftPen lineWidth="0.6" lineStyle="Solid" lineColor="#000000"/>
+										<bottomPen lineWidth="0.6" lineStyle="Solid" lineColor="#000000"/>
+										<rightPen lineWidth="0.6" lineStyle="Solid" lineColor="#000000"/>
+									</box>
+									<textElement textAlignment="Center" verticalAlignment="Middle"/>
+									<text><![CDATA[EmpName]]></text>
+								</staticText>
+							</frame>
+						</frame>
+					</cellContents>
+				</crosstabHeaderCell>
+				<rowGroup name="employee_id" width="60">
+					<bucket class="java.lang.String">
+						<bucketExpression><![CDATA[$F{employee_id}]]></bucketExpression>
+					</bucket>
+					<crosstabRowHeader>
+						<cellContents mode="Opaque" style="Crosstab_CH">
+							<frame>
+								<reportElement x="0" y="0" width="60" height="20" uuid="85cd40a4-e807-423c-a098-153f6d71479b"/>
+								<frame>
+									<reportElement x="0" y="0" width="60" height="20" uuid="bc72fa8f-4a3e-4d33-9438-e011519e24b8"/>
+									<textField>
+										<reportElement x="0" y="0" width="60" height="20" uuid="e5b9d00e-dd78-415f-b372-56ed3bed3604"/>
+										<textElement textAlignment="Center" verticalAlignment="Middle"/>
+										<textFieldExpression><![CDATA[$V{employee_id}]]></textFieldExpression>
+									</textField>
+								</frame>
+							</frame>
+						</cellContents>
+					</crosstabRowHeader>
+					<crosstabTotalRowHeader>
+						<cellContents>
+							<staticText>
+								<reportElement x="0" y="0" width="-2147483648" height="-2147483648" uuid="44f48105-39c4-4711-8386-2d7e16ffd981"/>
+								<text><![CDATA[Total employee_id]]></text>
+							</staticText>
+						</cellContents>
+					</crosstabTotalRowHeader>
+				</rowGroup>
+				<rowGroup name="emp_name" width="60">
+					<bucket class="java.lang.String">
+						<bucketExpression><![CDATA[$F{emp_name}]]></bucketExpression>
+					</bucket>
+					<crosstabRowHeader>
+						<cellContents mode="Opaque" style="Crosstab_CH">
+							<frame>
+								<reportElement x="0" y="0" width="60" height="20" uuid="e13db17f-8eaf-4651-8e12-dd0b3e904c3d"/>
+								<frame>
+									<reportElement x="0" y="0" width="60" height="20" uuid="d22c81c9-9052-45bb-b42c-6cd98c349b06"/>
+									<frame>
+										<reportElement x="0" y="0" width="60" height="20" uuid="87a63f96-8966-490e-aca0-63f1d913e2cc"/>
+										<textField>
+											<reportElement x="0" y="0" width="60" height="20" uuid="651e837f-a67f-4458-9fd1-ef6d653e12ea"/>
+											<textElement textAlignment="Center" verticalAlignment="Middle"/>
+											<textFieldExpression><![CDATA[$V{emp_name}]]></textFieldExpression>
+										</textField>
+									</frame>
+								</frame>
+							</frame>
+						</cellContents>
+					</crosstabRowHeader>
+					<crosstabTotalRowHeader>
+						<cellContents>
+							<staticText>
+								<reportElement x="0" y="0" width="-2147483648" height="-2147483648" uuid="d5871e1c-9ce7-4ee4-bd29-4bdf21eb4ca3"/>
+								<text><![CDATA[Total emp_name]]></text>
+							</staticText>
+						</cellContents>
+					</crosstabTotalRowHeader>
+				</rowGroup>
+				<columnGroup name="date" height="40">
+					<bucket class="java.sql.Date">
+						<bucketExpression><![CDATA[$F{date}]]></bucketExpression>
+					</bucket>
+					<crosstabColumnHeader>
+						<cellContents mode="Opaque" style="Crosstab_CH">
+							<frame>
+								<reportElement x="0" y="0" width="100" height="40" uuid="5a313183-0e87-4a1e-aa18-2e276bb6d973"/>
+								<frame>
+									<reportElement x="0" y="0" width="100" height="20" uuid="c6fe2117-02ed-4b77-a055-ace16fdb18b1"/>
+									<textField pattern="dd/MM/yyyy">
+										<reportElement x="0" y="0" width="100" height="20" uuid="c1a8a507-c51c-4aa1-b3d4-8f6285099fc8"/>
+										<box>
+											<pen lineWidth="0.6"/>
+											<topPen lineWidth="0.6" lineStyle="Solid" lineColor="#000000"/>
+											<leftPen lineWidth="0.6" lineStyle="Solid" lineColor="#000000"/>
+											<bottomPen lineWidth="0.6" lineStyle="Solid" lineColor="#000000"/>
+											<rightPen lineWidth="0.6" lineStyle="Solid" lineColor="#000000"/>
+										</box>
+										<textElement textAlignment="Center" verticalAlignment="Middle"/>
+										<textFieldExpression><![CDATA[$V{date}]]></textFieldExpression>
+									</textField>
+								</frame>
+								<staticText>
+									<reportElement x="0" y="20" width="50" height="20" uuid="54c379b8-7d6e-4309-959b-3735b0a992d5"/>
+									<box>
+										<pen lineWidth="0.6"/>
+										<topPen lineWidth="0.6" lineStyle="Solid" lineColor="#000000"/>
+										<leftPen lineWidth="0.6" lineStyle="Solid" lineColor="#000000"/>
+										<bottomPen lineWidth="0.6" lineStyle="Solid" lineColor="#000000"/>
+										<rightPen lineWidth="0.6" lineStyle="Solid" lineColor="#000000"/>
+									</box>
+									<textElement textAlignment="Center" verticalAlignment="Middle"/>
+									<text><![CDATA[Morning]]></text>
+								</staticText>
+								<staticText>
+									<reportElement x="50" y="20" width="50" height="20" uuid="8ef5eefb-8ce5-4317-b55a-30b7e85522fd">
+										<property name="com.jaspersoft.studio.unit.width" value="px"/>
+									</reportElement>
+									<box>
+										<pen lineWidth="0.6"/>
+										<topPen lineWidth="0.6" lineStyle="Solid" lineColor="#000000"/>
+										<leftPen lineWidth="0.6" lineStyle="Solid" lineColor="#000000"/>
+										<bottomPen lineWidth="0.6" lineStyle="Solid" lineColor="#000000"/>
+										<rightPen lineWidth="0.6" lineStyle="Solid" lineColor="#000000"/>
+									</box>
+									<textElement textAlignment="Center" verticalAlignment="Middle"/>
+									<text><![CDATA[Afternoon]]></text>
+								</staticText>
+							</frame>
+						</cellContents>
+					</crosstabColumnHeader>
+					<crosstabTotalColumnHeader>
+						<cellContents>
+							<staticText>
+								<reportElement x="0" y="0" width="-2147483648" height="-2147483648" uuid="db9d341e-f4be-490b-a0fe-c26ef8b60f8b"/>
+								<text><![CDATA[Total date]]></text>
+							</staticText>
+						</cellContents>
+					</crosstabTotalColumnHeader>
+				</columnGroup>
+				<measure name="morning_MEASURE" class="java.lang.String">
+					<measureExpression><![CDATA[$F{morning}]]></measureExpression>
+				</measure>
+				<measure name="afternoon_MEASURE" class="java.lang.String">
+					<measureExpression><![CDATA[$F{afternoon}]]></measureExpression>
+				</measure>
+				<crosstabCell width="100" height="20">
+					<cellContents mode="Opaque" style="Crosstab_CD">
+						<frame>
+							<reportElement x="0" y="0" width="100" height="20" uuid="a31d1d94-83fe-4865-9656-e6977e4acf80"/>
+							<frame>
+								<reportElement x="0" y="0" width="50" height="20" uuid="0d6c0613-3dd6-436a-b48a-ee5c7dae9dec"/>
+								<textField>
+									<reportElement x="0" y="0" width="50" height="20" uuid="e9d537a0-51c2-4ca4-a460-89761c3bc2e9"/>
+									<box>
+										<pen lineWidth="0.6"/>
+										<topPen lineWidth="0.6" lineStyle="Solid" lineColor="#000000"/>
+										<leftPen lineWidth="0.6" lineStyle="Solid" lineColor="#000000"/>
+										<bottomPen lineWidth="0.6" lineStyle="Solid" lineColor="#000000"/>
+										<rightPen lineWidth="0.6" lineStyle="Solid" lineColor="#000000"/>
+									</box>
+									<textElement textAlignment="Center" verticalAlignment="Middle"/>
+									<textFieldExpression><![CDATA[$V{morning_MEASURE}.equalsIgnoreCase( "A" )?"-":"P"]]></textFieldExpression>
+								</textField>
+							</frame>
+							<textField>
+								<reportElement x="50" y="0" width="50" height="20" uuid="13d141fa-123f-46a1-8f80-3e086d5676af"/>
+								<box>
+									<pen lineWidth="0.6"/>
+									<topPen lineWidth="0.6" lineStyle="Solid" lineColor="#000000"/>
+									<leftPen lineWidth="0.6" lineStyle="Solid" lineColor="#000000"/>
+									<bottomPen lineWidth="0.6" lineStyle="Solid" lineColor="#000000"/>
+									<rightPen lineWidth="0.6" lineStyle="Solid" lineColor="#000000"/>
+								</box>
+								<textElement textAlignment="Center" verticalAlignment="Middle"/>
+								<textFieldExpression><![CDATA[$V{afternoon_MEASURE}.equalsIgnoreCase( "A" )?"-":"P"]]></textFieldExpression>
+							</textField>
+						</frame>
+					</cellContents>
+				</crosstabCell>
+				<crosstabCell width="60" height="40" columnTotalGroup="date">
+					<cellContents mode="Opaque" style="Crosstab_CT">
+						<textField>
+							<reportElement x="0" y="0" width="60" height="20" uuid="5ee67785-8031-41d4-9e86-abe77c01b178"/>
+							<textFieldExpression><![CDATA[$V{morning_MEASURE}]]></textFieldExpression>
+						</textField>
+						<textField>
+							<reportElement x="0" y="20" width="60" height="20" uuid="371ed193-5764-419b-b645-21cf2704ad84"/>
+							<textFieldExpression><![CDATA[$V{afternoon_MEASURE}]]></textFieldExpression>
+						</textField>
+					</cellContents>
+				</crosstabCell>
+				<crosstabCell width="60" height="40" rowTotalGroup="employee_id">
+					<cellContents mode="Opaque" style="Crosstab_CT">
+						<textField>
+							<reportElement x="0" y="0" width="60" height="20" uuid="0f1a3385-b971-4277-8238-011c796ae80e"/>
+							<textFieldExpression><![CDATA[$V{morning_MEASURE}]]></textFieldExpression>
+						</textField>
+						<textField>
+							<reportElement x="0" y="20" width="60" height="20" uuid="658ad53e-c9df-4191-895e-d39d4da58b45"/>
+							<textFieldExpression><![CDATA[$V{afternoon_MEASURE}]]></textFieldExpression>
+						</textField>
+					</cellContents>
+				</crosstabCell>
+				<crosstabCell width="60" height="40" rowTotalGroup="employee_id" columnTotalGroup="date">
+					<cellContents mode="Opaque" style="Crosstab_CT">
+						<textField>
+							<reportElement x="0" y="0" width="60" height="20" uuid="42af25e3-bbff-4201-95e7-91964e23bac1"/>
+							<textFieldExpression><![CDATA[$V{morning_MEASURE}]]></textFieldExpression>
+						</textField>
+						<textField>
+							<reportElement x="0" y="20" width="60" height="20" uuid="d88ee376-3b1e-44b1-b18a-e134495115d4"/>
+							<textFieldExpression><![CDATA[$V{afternoon_MEASURE}]]></textFieldExpression>
+						</textField>
+					</cellContents>
+				</crosstabCell>
+				<crosstabCell width="60" height="40" rowTotalGroup="emp_name">
+					<cellContents mode="Opaque" style="Crosstab_CG">
+						<textField>
+							<reportElement x="0" y="0" width="60" height="20" uuid="50ae2a3b-99b2-444e-9a3c-110ac51a4d1c"/>
+							<textFieldExpression><![CDATA[$V{morning_MEASURE}]]></textFieldExpression>
+						</textField>
+						<textField>
+							<reportElement x="0" y="20" width="60" height="20" uuid="56829d06-2bf7-4c52-968a-07db7f5047ed"/>
+							<textFieldExpression><![CDATA[$V{afternoon_MEASURE}]]></textFieldExpression>
+						</textField>
+					</cellContents>
+				</crosstabCell>
+				<crosstabCell width="60" height="40" rowTotalGroup="emp_name" columnTotalGroup="date">
+					<cellContents mode="Opaque" style="Crosstab_CT">
+						<textField>
+							<reportElement x="0" y="0" width="60" height="20" uuid="d983b5d3-9f3b-4bbb-bd26-20f4538f2f7a"/>
+							<textFieldExpression><![CDATA[$V{morning_MEASURE}]]></textFieldExpression>
+						</textField>
+						<textField>
+							<reportElement x="0" y="20" width="60" height="20" uuid="51ab700d-6797-4535-a659-e6d4ef1c69e5"/>
+							<textFieldExpression><![CDATA[$V{afternoon_MEASURE}]]></textFieldExpression>
+						</textField>
+					</cellContents>
+				</crosstabCell>
+			</crosstab>
+		</band>
+	</summary>
+</jasperReport>
